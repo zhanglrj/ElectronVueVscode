@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>舟山市政务服务中心叫号单</title>
+    <style type="text/css">
+        .style1
+        {
+            height: 19px;
+            width: 126px;
+        }
+        .style2
+        {
+            height: 20px;
+            width: 80px;
+        }
+        .style3
+        {
+            width: 150px;
+            height: 19px;
+        }
+        .style4
+        {
+            height: 20px;
+            width: 190px;
+        }
+        .style5
+        {
+            width: 271px;
+            height: 20px;
+        }
+        .style6
+        {
+            height: 38px;
+        }
+    .STYLE7 {
+	font-family: "宋体";
+	font-size: 12px;
+}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/jquery.timers-1.2.js"></script>
+    <script src="Scripts/jquery.jqprint-0.3.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script language="javascript" src="Scripts/LodopFuncs.js"></script>
+    <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0>
+        <embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0></embed>
+    </object>
+
+    <script>
+        
+        window.addEventListener('message', function (event) {//子获取父消息
+            var printdata = event.data;
+            for (var p in event.data.data) {//遍历json对象的每个key/value对,p为key
+                $('#' + p).html(event.data.data[p]);
+                
+            }
+         
+        var html = document.documentElement.innerHTML;
+        var printresult = lodopPrint(html);
+        var printmsg;
+        if (printresult) {
+            printmsg = {
+                succ: true,
+                msg:  '打印成功！'
+                
+            }
+        } else {
+            printmsg = {
+                succ: false,
+                msg: '打印失败！'
+                
+            }
+        }
+        // 向父窗框返回响应结果
+        window.parent.postMessage( printmsg, '*');
+        }, false);
+
+        function lodopPrint(html) {
+            if (!CheckIsInstall()) {
+                alert("本机未安装Lodop控件！");
+            } else {
+                var LODOP = getLodop();
+
+                LODOP.SET_PRINT_STYLEA(0, "Horient", 2);//设置对象在纸张范围内水平居中,
+                //LODOP.PRINT_INITA(0, 0, 800, 706, "打印控件功能演示_Lodop功能_超文本内容缩放打印");
+                LODOP.SET_PRINT_MODE("NOCLEAR_AFTER_PRINT", true);
+                //LODOP.ADD_PRINT_RECT(9, 24, 202, 695, 0, 1);
+                //LODOP.ADD_PRINT_RECT(11, 245, 542, 582, 0, 1);
+                LODOP.ADD_PRINT_IMAGE(11, 20, 300, 700, html);
+                //LODOP.SET_PRINT_STYLEA(0, "Stretch", ZMode);
+                return LODOP.PRINT();
+            }
+        }
+
+        function CheckIsInstall() {
+            try {
+                var LODOP = getLodop();
+                if (LODOP.VERSION) {
+                    return true;
+                    //if (LODOP.CVERSION)
+
+                    //    //alert("当前有C-Lodop云打印可用!\n C-Lodop版本:" + LODOP.CVERSION + "(内含Lodop" + LODOP.VERSION + ")");
+                    //else
+                    //    alert("本机已成功安装了Lodop控件！\n 版本号:" + LODOP.VERSION);
+
+                } else return false;
+            } catch (err) {
+            }
+        }; 
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <div align="center" style="font-size: 22px; font-weight: bold; font-family: 微软雅黑; letter-spacing: 1px; margin-bottom: 10px"><font size="4">&nbsp;&nbsp;</font><span class="STYLE7">舟山市政务服务中心叫号单</span></div>
+        <div style="width: 272px" ;>
+            <div align="center">
+                <table class="MsoTableGrid" border="0px" cellspacing="0" cellpadding="3px" style="border-style: none">
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%">
+                                <tr>
+                                    <td align="left" valign="middle" ; class="style2">
+                                        <div id="受理单位" name="受理单位" style="text-align: center;">人社</div>
+                                    </td>
+                                    <td align="left" valign="middle" class="style3">
+                                        <div id="事项名称" name="事项名称" runat="server" style="">区属机关事业单位社会保险基金申报（单位增减员、社会保险缴费基数变更、养老保险关系转移、补缴）</div>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td valign="middle"
+                            colspan="2"
+                            class="style5">
+                            <div id="排队编号" name="排队编号" runat="server" style="font-size: 28px; text-align: center; font-weight: bold">人社B001</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan=2 align="left" class="style3" style="font-size: 14px; font-weight: bold; word-wrap: break-word;word-break:break-all;">
+                            <div align="left">等待窗口：</div>
+                            <div><span id="办理楼层" name="办理楼层">3</span>楼</div>
+                            <div><span id="办理窗口" name="办理窗口">33,34,35,36,33</span></div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td align="left" class="style1" style="text-align: center; font-weight: bold;  font-size: 14px;">
+                            <div>前面&nbsp;<span id="等待人数" name="等待人数" runat="server">5</span>&nbsp;人等待</div>
+                        </td>
+                    </tr>
+                    <tr style="height: 15.85px">
+                        <td height="22" colspan="2" valign="middle" class="style5">
+                            <p style="text-align: center; font-family: 宋体"><span id=打印时间 name=打印时间>打印时间：2015-02-02  11:00:00</span></p>
+                        </td>
+                    </tr>
+                    <tr style="height: 15.85px">
+                        <td height="22" colspan="2" valign="middle" class="style5">
+                            <p style="text-align: center; font-family: 宋体">请注意听语音叫号&nbsp;<span id=打印时间 name=打印时间>屏幕提示</span></p>
+                        </td>
+                    </tr>
+
+                    <!--<tr style="height: 91.9px">
+
+                        <td height="174" colspan="2" align="center" >
+                            <hr />
+                            <img src="binCode.jpg" style="width: 150px; height: 150px;" />
+                        </td>
+                    </tr>-->
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
